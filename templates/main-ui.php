@@ -12,8 +12,7 @@
             <div class="prompt">
                 <?php include 'activity-indicator.php'; ?>
                 <label for="prompt">
-                    <textarea id="prompt" name="prompt" rows="4"
-                        cols="50">help me write a product description</textarea>
+                    <textarea id="prompt" name="prompt" rows="4" cols="50"></textarea>
                 </label>
                 <button id="submit" class="submit" type="button" aria-label="Submit" aria-pressed="false">
                     <span class="send"><?php echo get_svg_icon('send'); ?></span>
