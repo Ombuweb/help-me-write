@@ -1,0 +1,147 @@
+/* .hmw-wrapper {
+  padding-bottom: 10px;
+  border: 1px solid #4caf50;
+  padding: 5px 10px;
+  margin: 0 12px 6px;
+} */
+
+.result {
+  height: 400px;
+  overflow-y: auto;
+  background-color: rgba(219, 228, 219, 0.63);
+  padding: 10px;
+  border-bottom: 10px solid #e8eee9;
+}
+
+.accept-result {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+}
+.accept-result button {
+}
+button.accept {
+  display: flex;
+  align-items: center;
+  border: 1px solid #4caf50;
+  border-radius: 5px;
+  box-shadow: 0 0 1px 1px #4caf50;
+  padding: 2.5px 5px;
+  color: white;
+  background: #4caf50;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+button.accept:hover {
+  background-color: white;
+  color: #4caf50;
+}
+
+.hmw-wrapper .hmw-wrapper textarea {
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  height: auto;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #cccccc7d;
+  border-radius: 4px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  resize: vertical; /* Allow vertical resizing */
+}
+
+textarea:focus {
+  border-color: #4caf50;
+  outline: none;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.6); /* #4caf50 in rgba */
+}
+
+.hmw-wrapper .prompt button {
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  /* border-radius: 4px; */
+  cursor: pointer;
+}
+
+.prompt {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  align-items: center;
+  gap: 10px;
+}
+.prompt .pulsing-dots-wrapper {
+  grid-column: span 2;
+  display: none;
+}
+.hmw-wrapper #submit {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  /* circle */
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #4caf50 !important;
+}
+.hmw-wrapper #submit span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hmw-wrapper #submit span svg {
+  fill: white;
+}
+.hmw-wrapper .square {
+  display: none;
+}
+
+.hmw-wrapper .show {
+  display: block;
+}
+
+.pulsing-dots {
+  display: flex;
+  align-items: center;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: rgba(143, 225, 149, 0.883);
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+}
