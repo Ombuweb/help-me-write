@@ -2,10 +2,10 @@
 
 
 /**
- * Agrega un metabox para mostrar la fecha de publicación del post.
+ * Adds a metabox to display the post's publication date.
  *
- * Agrega un metabox en el formulario de edición de posts del tipo "nuevo_contenido"
- * que muestra la fecha de publicación del post.
+ * Adds a metabox in the edit form of posts of type "nuevo_contenido"
+ * that shows the post's publication date.
  *
  * @since 1.0
  */
@@ -13,12 +13,12 @@ function add_help_me_write_plugin_metabox(): void
 {
 
 	add_meta_box(
-		'write-with-ai', // ID único para el metabox
-		'Write with AI', // Etiqueta para el metabox
-		'render_help_me_write_plugin_metabox', // Función de callback para mostrar el contenido del metabox
-		'product', // Nombre del post type al que pertenece el metabox
-		'normal', // Contexto en el que se muestra el metabox (ubicacion del metabox en el formulario)
-		'high' // Prioridad en la que se muestra el metabox
+		'write-with-ai', // Unique ID for the metabox
+		'Write with AI', // Metabox title
+		'render_help_me_write_plugin_metabox', // Callback function to display the content of the metabox
+		'product', // Name of the post type to which the metabox belongs
+		'normal', // Context in which the metabox is displayed (location of the metabox in the form)
+		'high'
 	);
 }
 
