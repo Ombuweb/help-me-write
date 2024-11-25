@@ -107,7 +107,9 @@ textarea:focus {
 .hmw-wrapper .square {
   display: none;
 }
-
+.hide {
+  display: none;
+}
 .hmw-wrapper .show {
   display: block;
 }

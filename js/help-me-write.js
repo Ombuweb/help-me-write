@@ -2,9 +2,10 @@ let session = null;
 let conversationStarted = false;
 let processing = false;
 let abortController = new AbortController();
+
 jQuery(document).ready(async function ($) {
   if (session) session.destroy();
-  await createSession();
+  await createSession($);
   // $('#postdivrich').each(function () {
   //   // Create a new <p> element with "hello" text
   //   $(this).append(window.getUIString());
@@ -107,8 +108,11 @@ function updateUIWithPromptResponse($, response) {
 
   if (response) $('#subheading').hide();
 }
-async function createSession() {
+async function createSession($) {
   try {
+    if (!ai) {
+      throw new Error('AI is not available');
+    }
     const { available, defaultTemperature, defaultTopK, maxTopK } =
       await ai.languageModel.capabilities();
     if (available !== 'no') {
@@ -121,12 +125,17 @@ async function createSession() {
          If you need more context, ask for it.
         `,
       });
-      console.log('Prompt session created', session);
+      if (session.prompt) {
+        $('.console-info').classList.add('hide');
+        $('.prompt-wrapper').classList.remove('hide');
+      }
     } else {
       console.error('Language model is not available');
+      throw new Error('Language model is not available');
     }
   } catch (error) {
     console.error('Error creating prompt session', error);
+    $('.console-info').css('color', 'red').text("Session couldn't be started");
   }
 }
 

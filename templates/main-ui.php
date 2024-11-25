@@ -7,7 +7,10 @@
                 <span>Yes</span>
             </button>
         </div>
-        <div class="prompt-wrapper">
+        <div class="console-info">
+            Creating session...
+        </div>
+        <div class="prompt-wrapper hide">
             <h3 id="subheading">How can I help you with your product description?</h3>
             <div class="prompt">
                 <?php include 'activity-indicator.php'; ?>
