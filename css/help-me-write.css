@@ -12,14 +12,19 @@
   padding: 10px;
   border-bottom: 10px solid #e8eee9;
 }
-
+.result > .placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 20px;
+  color: #4caf50;
+}
 .accept-result {
   display: flex;
   align-items: center;
   gap: 10px;
   opacity: 0;
-}
-.accept-result button {
 }
 button.accept {
   display: flex;

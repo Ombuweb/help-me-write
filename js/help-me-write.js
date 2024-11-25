@@ -11,8 +11,12 @@ jQuery(document).ready(async function ($) {
   //   $(this).append(window.getUIString());
   function clearResults() {
     $('#result').fadeOut(500, function () {
-      $(this).text('').fadeIn(500);
+      // toggle the placeholder div
+      togglePlaceholder();
     });
+  }
+  function togglePlaceholder() {
+    $('.placeholder').toggle();
   }
   $('#accept').click(function () {
     acceptResult($);
@@ -135,7 +139,12 @@ async function createSession($) {
     }
   } catch (error) {
     console.error('Error creating prompt session', error);
-    $('.console-info').css('color', 'red').text("Session couldn't be started");
+    $('.console-info')
+      .css('color', 'red')
+      .css('font-size', '1.5em')
+      .css('background-color', 'rgba(255, 0, 0, 0.1)')
+      .css('padding', '1em')
+      .text("Prompting session couldn't be started");
   }
 }
 

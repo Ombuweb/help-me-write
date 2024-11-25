@@ -1,6 +1,10 @@
 <div class="hmw-wrapper">
     <div class="hmw-wrapper">
-        <div id="result" class="result"></div>
+        <div id="result" class="result">
+            <div class="placeholder">
+                The bot result goes here.
+            </div>
+        </div>
         <div class="accept-result">
             <h4>Are you happy with the result?</h4>
             <button id="accept" class="accept" type="button" aria-label="Accept">
