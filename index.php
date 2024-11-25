@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Help Me Write
- * Description: An AI-powered writing assistant that helps you write better content for your product.
+ * Description: A Chrome built-in AI-powered writing assistant that helps you write better content for your product.
  * Version: 1.0
  */
 
