@@ -112,7 +112,19 @@ function updateUIWithPromptResponse($, response) {
 
   if (response) $('#subheading').hide();
 }
+function informUserWithMessage($, message, options) {
+  $('.console-info-error')
+    .text(message)
+    .css('color', options.isError ? 'red' : 'black')
+    .css('font-size', options.isError ? '1.5em' : '1em')
+    .css(
+      'background-color',
+      options.isError ? 'rgba(255, 0, 0, 0.1)' : 'rgba(0, 0, 0, 0.05)'
+    )
+    .css('padding', '1em');
+}
 async function createSession($) {
+  informUserWithMessage($, 'Creating prompt session...', { isError: false });
   try {
     if (!ai) {
       throw new Error('AI is not available');
@@ -130,7 +142,7 @@ async function createSession($) {
         `,
       });
       if (session.prompt) {
-        $('.console-info').classList.add('hide');
+        $('.console-info-error').classList.add('hide');
         $('.prompt-wrapper').classList.remove('hide');
       }
     } else {
@@ -139,12 +151,9 @@ async function createSession($) {
     }
   } catch (error) {
     console.error('Error creating prompt session', error);
-    $('.console-info')
-      .css('color', 'red')
-      .css('font-size', '1.5em')
-      .css('background-color', 'rgba(255, 0, 0, 0.1)')
-      .css('padding', '1em')
-      .text("Prompting session couldn't be started");
+    informUserWithMessage($, "Prompting session couldn't be started", {
+      isError: true,
+    });
   }
 }
 

@@ -11,8 +11,7 @@
                 <span>Yes</span>
             </button>
         </div>
-        <div class="console-info">
-            Creating session...
+        <div class="console-info-error">
         </div>
         <div class="prompt-wrapper hide">
             <h3 id="subheading">How can I help you with your product description?</h3>

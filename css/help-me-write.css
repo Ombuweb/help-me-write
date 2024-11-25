@@ -20,6 +20,9 @@
   font-size: 20px;
   color: #4caf50;
 }
+.console-info-error {
+  transition: all 0.3s;
+}
 .accept-result {
   display: flex;
   align-items: center;
