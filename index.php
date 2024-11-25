@@ -13,7 +13,6 @@ add_action('admin_enqueue_scripts', 'help_me_write_enqueue_scripts');
 function help_me_write_enqueue_scripts()
 {
     wp_enqueue_script('marked', 'https://cdn.jsdelivr.net/npm/marked/marked.min.js', array(), '15.0.0', true);
-    wp_enqueue_script('create-ui', plugin_dir_url(__FILE__) . 'js/create-ui.js', array('jquery'), '1.0', true);
     wp_enqueue_script('help-me-write', plugin_dir_url(__FILE__) . 'js/help-me-write.js', array('jquery'), '1.0', true);
 
     wp_enqueue_style('help-me-write', plugin_dir_url(__FILE__) . 'css/help-me-write.css', array(), '1.0');
