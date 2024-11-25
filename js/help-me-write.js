@@ -6,9 +6,6 @@ let abortController = new AbortController();
 jQuery(document).ready(async function ($) {
   if (session) session.destroy();
   await createSession($);
-  // $('#postdivrich').each(function () {
-  //   // Create a new <p> element with "hello" text
-  //   $(this).append(window.getUIString());
   function clearResults() {
     $('#result').fadeOut(500, function () {
       // toggle the placeholder div
