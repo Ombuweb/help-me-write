@@ -4,9 +4,7 @@ let processing = false;
 let abortController = new AbortController();
 jQuery(document).ready(async function ($) {
   if (session) session.destroy();
-  await Promise.resolve().then(
-    () => new Promise((resolve) => setTimeout(resolve, 2000))
-  );
+
   await createSession($);
   function clearResults() {
     $('#result').fadeOut(500, function () {
