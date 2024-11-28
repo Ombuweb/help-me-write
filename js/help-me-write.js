@@ -2,9 +2,11 @@ let session = null;
 let conversationStarted = false;
 let processing = false;
 let abortController = new AbortController();
-
 jQuery(document).ready(async function ($) {
   if (session) session.destroy();
+  await Promise.resolve().then(
+    () => new Promise((resolve) => setTimeout(resolve, 2000))
+  );
   await createSession($);
   function clearResults() {
     $('#result').fadeOut(500, function () {
@@ -123,13 +125,13 @@ function informUserWithMessage($, message, options) {
 async function createSession($) {
   informUserWithMessage($, 'Creating prompt session...', { isError: false });
   try {
-    if (!ai) {
-      throw new Error('AI is not available');
+    if (typeof ai === 'undefined') {
+      informUserWithMessage($, 'AI is not available', { isError: true });
+      return;
     }
     const { available, defaultTemperature, defaultTopK, maxTopK } =
       await ai.languageModel.capabilities();
     if (available !== 'no') {
-      console.log('Creating prompt session', abortController.signal);
       session = await ai.languageModel.create({
         systemPrompt: `
         You are an e-commerce SEO specialist. Based on user request, you will help with 
@@ -139,8 +141,9 @@ async function createSession($) {
         `,
       });
       if (session.prompt) {
-        $('.console-info-error').classList.add('hide');
-        $('.prompt-wrapper').classList.remove('hide');
+        console.log('Prompting session created');
+        $('.console-info-error').toggle();
+        $('.prompt-wrapper').toggle();
       }
     } else {
       console.error('Language model is not available');
@@ -148,6 +151,7 @@ async function createSession($) {
     }
   } catch (error) {
     console.error('Error creating prompt session', error);
+
     informUserWithMessage($, "Prompting session couldn't be started", {
       isError: true,
     });
